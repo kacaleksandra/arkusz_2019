@@ -63,30 +63,35 @@
 
     <script>
         function dzialania(znak) {
-            let A = parseInt(document.forms[0].elements[0].value);
-            let B = parseInt(document.forms[0].elements[1].value);
+            const A = parseInt(document.forms[0].elements[0].value);
+            const B = parseInt(document.forms[0].elements[1].value);
             let wynik = 0;
 
-            switch (znak) {
-                case '+':
-                    wynik = A + B;
-                    break;
-                case '-':
-                    wynik = A - B;
-                    break;
-                case '*':
-                    wynik = A * B;
-                    break;
-                case '/':
-                    wynik = A / B;
-                    break;
-                case '^':
-                    wynik = Math.pow(A, B);
-                    break;
-            }
+            if (isNaN(A) || isNaN(B)) {
+                let element = document.querySelector("#wynik");
+                element.innerText = "Niepoprawne dane!";
+            } else {
+                switch (znak) {
+                    case '+':
+                        wynik = A + B;
+                        break;
+                    case '-':
+                        wynik = A - B;
+                        break;
+                    case '*':
+                        wynik = A * B;
+                        break;
+                    case '/':
+                        wynik = A / B;
+                        break;
+                    case '^':
+                        wynik = Math.pow(A, B);
+                        break;
+                }
 
-            let element = document.querySelector("#wynik");
-            element.innerText = "Wynik: " + wynik;
+                let element = document.querySelector("#wynik");
+                element.innerText = "Wynik: " + wynik;
+            }
         }
     </script>
 
