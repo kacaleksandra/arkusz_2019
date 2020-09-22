@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Działania matematyczne</title>
+    <link rel=" stylesheet" href="styl.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="logo.jpg" alt="matematyka">
+        </div>
+        <div class="vert">
+            <h1>Pomocnik matematyczny</h1>
+        </div>
+        <div class="marg">
+            <a href="dzialania.html">
+                <h4>Działania</h4>
+            </a>
+        </div>
+        <div class="marg">
+            <a href="mnozenie.html">
+                <h4>Tabliczka mnożenia</h4>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h3>Proste działania</h3>
+            <form action="#" method="GET">
+                <label> Liczba A:
+                    <input name="A" type="number">
+                </label><br>
+                <label> Liczba B:
+                    <input name="B" type="number">
+                </label><br>
+                <button type="button" onclick=" dzialania('+')">+</button>
+                <button type="button" onclick=" dzialania('-')">-</button>
+                <button type="button" onclick=" dzialania('*')">*</button>
+                <button type="button" onclick=" dzialania('/')">/ </button> <button type="button" onclick="
+                    dzialania('^')">A^B</button>
+                <br>
+                <p id="wynik"></p>
+            </form>
+        </section>
+        <aside>
+            <ul>
+                <li>dodawanie</li>
+                <li>odejmowanie</li>
+                <li>mnożenie</li>
+                <li>dzielenie</li>
+                <li>potęgowanie</li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <p>Autor: PESEL</p>
+    </footer>
+
+    <script>
+        function dzialania(znak) {
+            let A = parseInt(document.forms[0].elements[0].value);
+            let B = parseInt(document.forms[0].elements[1].value);
+            let wynik = 0;
+
+            switch (znak) {
+                case '+':
+                    wynik = A + B;
+                    break;
+                case '-':
+                    wynik = A - B;
+                    break;
+                case '*':
+                    wynik = A * B;
+                    break;
+                case '/':
+                    wynik = A / B;
+                    break;
+                case '^':
+                    wynik = Math.pow(A, B);
+                    break;
+            }
+
+            let element = document.querySelector("#wynik");
+            element.innerText = "Wynik: " + wynik;
+        }
+    </script>
+
+</body>
+
+</html>
